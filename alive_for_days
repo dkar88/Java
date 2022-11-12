@@ -1,0 +1,57 @@
+import java.util.Scanner;
+
+class Main {
+  public static void main(String[] args) {
+    System.out.print("\033[H\033[2J");
+    Scanner keyboard = new Scanner(System.in);
+    int dayUser, monthUser, yearUser, dayCurrent, monthCurrent, yearCurrent;
+   
+    System.out.print("Πληκρολόγησε τη μέρα που έχουμε σήμερα: ");
+    dayCurrent = keyboard.nextInt();
+    System.out.print("Πληκρολόγησε την μήνα που έχουμε σήμερα: ");
+    monthCurrent= keyboard.nextInt();
+    System.out.print("Πληκρολόγησε το έτος που έχουμε σήμερα: ");
+    yearCurrent= keyboard.nextInt();
+   
+    System.out.print("Δώσε την ημέρα γέννησης σου: ");
+    dayUser = keyboard.nextInt();
+    System.out.print("Δώσε το μήνα γέννησης σου: ");
+    monthUser = keyboard.nextInt();
+    System.out.print("Δώσε το έτος γέννησης σου: ");
+    yearUser = keyboard.nextInt();
+
+    int year;
+    int month;
+    int day;
+   
+    if (yearCurrent >= yearUser)
+      {
+       if (monthCurrent < monthUser)
+           {
+           monthCurrent = monthCurrent+12;
+           yearCurrent = yearCurrent-1;
+          }
+        else {
+           month = (monthCurrent - monthUser)*30;
+         
+        }
+        if (dayCurrent < dayUser)  {
+          dayCurrent = dayCurrent+30;
+          monthCurrent = monthCurrent+1;
+        }
+        
+  year= (yearCurrent - yearUser)*360;
+  month= (monthCurrent - monthUser)*30;
+  day= dayCurrent - dayUser;  
+  System.out.println(year+month+day +" " + "days");
+  System.out.println((year+month+day)/30 +" "+ "months");
+        
+      }
+    else {
+      System.out.println ("Invalid data");
+          }
+    
+
+}
+ 
+}
